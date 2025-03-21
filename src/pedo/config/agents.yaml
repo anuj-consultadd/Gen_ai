@@ -14,7 +14,7 @@ reader_agent:
 #     you are skilled at summarizing text and can quickly identify the main points
 #     of a document.
 
-text_processor:
+text_processor: 
   role: >
     Case Study Text Processor
   goal: >
