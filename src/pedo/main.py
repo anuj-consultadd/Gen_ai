@@ -15,7 +15,7 @@ def run():
     inputs = {
         'pdf_path': 'case_study.pdf',  
         'logo_url': "https://upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg" ,
-        'date_now': datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        'date_now': datetime.now().strftime('%Y-%m-%d__%H-%M-%S')
     }
     
     print("🚀 Starting the Crew Execution...")

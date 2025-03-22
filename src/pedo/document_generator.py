@@ -12,6 +12,20 @@ import re
 import matplotlib.pyplot as plt
 import numpy as np
 
+def set_global_font(doc, font_name="Times New Roman", font_size=15):
+    """Sets the global font style and size for all paragraphs in the document."""
+    for paragraph in doc.paragraphs:
+        for run in paragraph.runs:
+            run.font.name = font_name  # Set font type
+            run.font.size = Pt(font_size)  # Set font size
+
+    # Apply the font size to styles (for bullet points, headings, etc.)
+    styles = doc.styles
+    for style in styles:
+        if style.type == 1:  # Only apply to paragraph styles
+            style.font.name = font_name
+            style.font.size = Pt(font_size)
+
 def create_formatted_case_study(input_text, logo_url, output_file):
     """Creates a well-formatted Word document from structured input text and converts it to PDF."""
     if not output_file.endswith(".pdf"):
@@ -55,30 +69,39 @@ def create_formatted_case_study(input_text, logo_url, output_file):
         if not line:
             continue
             
-        if line.startswith("### "): # H3
+        if line.startswith("### "):
+            p = doc.add_paragraph(line[5:], style="Heading 3")
+        elif line.startswith("### "):
             p = doc.add_paragraph(line[4:], style="Heading 3")
-            p.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
-            
-        elif line.startswith("## "): # H2
+        elif line.startswith("## "):
             p = doc.add_paragraph(line[3:], style="Heading 2")
-            p.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
-            
-        elif line.startswith("# "): # H1
+        elif line.startswith("# "):
             p = doc.add_paragraph(line[2:], style="Heading 1")
-            p.alignment = WD_PARAGRAPH_ALIGNMENT.LEFT
-            
+        
         # Bold Text
-        elif re.match(r"\*\*(.*?)\*\*", line):
+        elif re.search(r"\*\*(.*?)\*\*", line):
             p = doc.add_paragraph()
             run = p.add_run(re.sub(r"\*\*(.*?)\*\*", r"\1", line))
             run.bold = True
-            
-        # Bulleted Lists
+        
+        # Underlined Text
+        elif re.search(r"__(.*?)__", line):
+            p = doc.add_paragraph()
+            run = p.add_run(re.sub(r"__(.*?)__", r"\1", line))
+            run.underline = True
+        
+        # Highlighted Insights
+        elif "🔹 Highlighted Text:" in line:
+            p = doc.add_paragraph()
+            run = p.add_run(line.replace("🔹 Highlighted Text:", ""))
+            run.font.highlight_color = 3  # Yellow highlight
+        
+        # Bullet Points
         elif line.startswith("- "):
             p = doc.add_paragraph(line[2:], style="List Bullet")
-            
+        
         # Numbered Lists
-        elif re.match(r"^\d+\.", line):
+        elif re.match(r"^\d+\.\s", line):
             p = doc.add_paragraph(line, style="List Number")
             
         # Data for graphs (simple format: "GRAPH: label1,value1;label2,value2")
@@ -159,6 +182,7 @@ def create_formatted_case_study(input_text, logo_url, output_file):
         footer_para.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
     
     # Save document
+    set_global_font(doc, font_name="Arial", font_size=11) 
     doc.save(docx_file)
     print(f"✅ DOCX saved as {docx_file}")
     
@@ -172,5 +196,6 @@ def create_formatted_case_study(input_text, logo_url, output_file):
     
     # Cleanup temporary files
     os.remove("temp_logo.png")
+    # os.remove(docx_file)    
     for i in range(len(data_for_graphs)):
         os.remove(f"temp_graph_{i}.png")

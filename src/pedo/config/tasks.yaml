@@ -1,43 +1,60 @@
 read_pdf_task:
   description: >
-    Read the contents of the PDF document located at {pdf_path} and identify the main topics.
+    "Extract all text and structured data from the {pdf_path} while ensuring
+    complete accuracy and preservation of original formatting."
   expected_output: >
-    Text extracted from the PDF document.
+    "The entire content of the PDF extracted as clean text, preserving:
+    - Section headings
+    - Bullet points
+    - Lists
+    - Bold indicators (**text**)
+    - Graph placeholders (GRAPH: label1,value1;label2,value2)"
   agent: reader_agent
 
-
-# summerize_text_task:
-#   description: >
-#     summerize the provided text and identify the main topics.
-#   expected_output: >
-#     A concise and accurate summary of the document's contents 
-#   agent: summerizer_agent
 
 
 text_processing_task:
   description: >
-    Take the provided case study text and structure it into a well-organized format.
+    "Take the provided case study text and structure it into a well-organized format.
     PRESERVE THE ORIGINAL TEXT AS-IS. DO NOT create, modify, or generate new content.
     Your only task is to apply markdown formatting without changing any details.
+    Format the extracted case study text into structured Markdown while preserving
+    all original information, structure, and meaning."
   agent: text_processor
   expected_output: >
-    The output must be IDENTICAL to the provided input, just formatted properly.
+    "The output must be IDENTICAL to the provided input, just formatted properly.
     Any hallucination or new content generation is STRICTLY FORBIDDEN.
+    A fully formatted Markdown version of the case study, ensuring:
+    - Proper header hierarchy (#, ##, ###).
+    - **Bold text** conversion.
+    - Bullet points and numbered lists remain intact.
+    - Graph placeholders (GRAPH: label1,value1;label2,value2) remain.
+    - 🔹 Highlighted insights are extracted for emphasis.
+    - NO content is altered or summarized."
+
 
 
 logo_fetching_task:
   description: >
-    Identify the subject matter of the case study and retrieve a relevant logo.
-    The subject of this case study appears to be MetroCare Health.
+    "Identify the subject matter of the case study and retrieve a relevant logo.
+    The subject of this case study appears to be MetroCare Health.""
   agent: logo_finder
   expected_output: >
-    A URL of the retrieved logo for MetroCare Health or a suitable healthcare-related logo.
+    "A URL of the retrieved logo for MetroCare Health or a suitable healthcare-related logo."
 
 document_formatting_task:
   description: >
-    Insert the structured text and logo into a Word document with proper formatting.
+    "Insert the structured text and logo into a Word document with proper formatting.
     Ensure the document has professional page borders, headers, footers, page numbers,
-    and appropriate styling for all elements.
+    and appropriate styling for all elements."
   agent: document_formatter
   expected_output: >
-    A fully formatted Word document containing the case study with all required elements.
+    "A fully formatted document with:
+    - Proper header and footer placement.
+    - Borders around pages.
+    - Correctly formatted **bold** and **underlined** text.
+    - Inserted **logos** aligned professionally.
+    - 🔹 Highlighted insights emphasized.
+    - Page numbers and footers containing company branding.
+    - A high-quality PDF output."
+
