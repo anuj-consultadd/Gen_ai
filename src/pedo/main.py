@@ -1,155 +1,4 @@
-# #!/usr/bin/env python
-# import sys
-# import warnings
-# import os
-# from datetime import datetime
-# from pedo.crew import Pedo  
-# from pedo.document_generator import create_formatted_case_study  
-
-# warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
-
-# def run():
-#     """
-#     Run the crew pipeline and generate the final PDF.
-#     """
-#     inputs = {
-#         'pdf_path': 'case_study.pdf',  
-#         'logo_url': "" ,
-#         'date_now': datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-#     }
-    
-#     print("🚀 Starting the Crew Execution...")
-
-#     try:
-#         structured_text = Pedo().crew().kickoff(inputs=inputs)
-
-#         if isinstance(structured_text, list):
-#             structured_text = " ".join(map(str, structured_text))
-#         elif not isinstance(structured_text, str):
-#             structured_text = str(structured_text)
-
-        
-#         os.makedirs("output", exist_ok=True)
-
-#         debug_structured_text_path = "output/debug_structured_text.txt"
-#         with open(debug_structured_text_path, "w", encoding="utf-8") as f:
-#             f.write(structured_text)
-
-
-#     except Exception as e:
-#         print(f"❌ An error occurred while running CrewAI: {e}")
-#         return
-
-#     try:
-#         output_file = f"output/{inputs['date_now']}.pdf"
-#         create_formatted_case_study(structured_text, inputs["logo_url"], output_file)
-#         print(f"✅ Final PDF saved at {output_file}")
-
-#     except Exception as e:
-#         print(f"❌ PDF generation failed: {e}")
-
-# if __name__ == "__main__":
-#     run()
-
-
-# #!/usr/bin/env python
-# import sys
-# import warnings
-# import os
-# import requests
-# from datetime import datetime
-# from pedo.crew import Pedo
-# from pedo.document_generator import create_formatted_case_study
-
-# warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
-
-# def get_company_logo_url(company_name):
-#     """Fetch a company logo URL using Clearbit Logo API with fallbacks."""
-#     print(f"🔍 Searching for logo for: {company_name}")
-    
-#     # Primary logo URL attempt
-#     logo_url = f"https://logo.clearbit.com/{company_name.lower().replace(' ', '')}.com"
-    
-#     # Fallback logos in case the company logo isn't found
-#     fallback_logos = [
-#         f"https://logo.clearbit.com/{company_name.lower().replace(' ', '-')}.com",
-#         "https://upload.wikimedia.org/wikipedia/commons/c/c0/Health_care_icon.svg",
-#         "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-#         "https://upload.wikimedia.org/wikipedia/commons/a/a9/Example.jpg"
-#     ]
-    
-#     # Check if logo exists, if not use fallbacks
-#     try:
-#         response = requests.head(logo_url)
-#         if response.status_code == 200:
-#             print(f"✅ Successfully found logo at: {logo_url}")
-#             return logo_url
-            
-#         print(f"⚠️ Primary logo URL failed with status {response.status_code}, trying fallbacks...")
-#         for fallback in fallback_logos:
-#             try:
-#                 response = requests.head(fallback)
-#                 if response.status_code == 200:
-#                     print(f"✅ Found fallback logo at: {fallback}")
-#                     return fallback
-#             except Exception as e:
-#                 print(f"⚠️ Failed to check fallback URL {fallback}: {e}")
-#                 continue
-#     except Exception as e:
-#         print(f"⚠️ Error checking primary logo URL: {e}")
-    
-#     # If all else fails, use the last fallback
-#     print(f"⚠️ All logo attempts failed, using final fallback: {fallback_logos[-1]}")
-#     return fallback_logos[-1]
-
-# def run():
-#     """
-#     Run the crew pipeline and generate the final PDF.
-#     """
-#     # Extract company name from the case study
-#     company_name = "MetroCare Health"
-    
-#     # Get logo URL
-#     logo_url = get_company_logo_url(company_name)
-    
-#     inputs = {
-#         'pdf_path': 'case_study.pdf',
-#         'logo_url': logo_url,
-#         'date_now': datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-#     }
-    
-#     print(f"🚀 Starting the Crew Execution with logo URL: {logo_url}")
-
-#     try:
-#         structured_text = Pedo().crew().kickoff(inputs=inputs)
-
-#         if isinstance(structured_text, list):
-#             structured_text = " ".join(map(str, structured_text))
-#         elif not isinstance(structured_text, str):
-#             structured_text = str(structured_text)
-
-#         os.makedirs("output", exist_ok=True)
-
-#         debug_structured_text_path = "output/debug_structured_text.txt"
-#         with open(debug_structured_text_path, "w", encoding="utf-8") as f:
-#             f.write(structured_text)
-
-#     except Exception as e:
-#         print(f"❌ An error occurred while running CrewAI: {e}")
-#         return
-
-#     try:
-#         output_file = f"output/{inputs['date_now']}.pdf"
-#         create_formatted_case_study(structured_text, inputs["logo_url"], output_file)
-#         print(f"✅ Final PDF saved at {output_file}")
-
-#     except Exception as e:
-#         print(f"❌ PDF generation failed: {e}")
-
-# if __name__ == "__main__":
-#     run()
-
-
+import argparse
 from crewai import Crew
 import os
 import requests
@@ -194,50 +43,62 @@ def get_company_logo_url(company_name):
     print(f"⚠️ No logo found for {company_name}")
     return None
 
-def extract_company_name_from_text(text):
-    """Extract company name from structured text using simple pattern matching."""
-    # Try to find patterns like "Company: XYZ" or "Client: XYZ"
-    company_patterns = [
-        r"Company:\s*([A-Za-z0-9\s]+(?:Inc\.?|LLC|Ltd\.?|GmbH|Corp\.?|Corporation|Company)?)",
-        r"Client:\s*([A-Za-z0-9\s]+(?:Inc\.?|LLC|Ltd\.?|GmbH|Corp\.?|Corporation|Company)?)",
-        r"Case Study:\s*([A-Za-z0-9\s]+(?:Inc\.?|LLC|Ltd\.?|GmbH|Corp\.?|Corporation|Company)?)",
-        r"# ([A-Za-z0-9\s]+(?:Inc\.?|LLC|Ltd\.?|GmbH|Corp\.?|Corporation|Company)?) Case Study"
-    ]
-    
-    for pattern in company_patterns:
-        matches = re.findall(pattern, text)
-        if matches:
-            return matches[0].strip()
-    
-    # Fall back to looking for company names with common suffixes
-    suffix_pattern = r"([A-Za-z0-9\s]+(?:Inc\.?|LLC|Ltd\.?|GmbH|Corp\.?|Corporation|Company))"
-    matches = re.findall(suffix_pattern, text)
-    if matches:
-        # Return the first occurrence that seems reasonably like a company name
-        for match in matches:
-            if len(match.split()) <= 5:  # Likely a company name if 5 or fewer words
-                return match.strip()
-    
-    # Final fallback - extract the title which often contains company name
-    title_match = re.search(r"# (.*)", text)
-    if title_match:
-        title = title_match.group(1)
-        # Clean up title to extract likely company name
-        cleaned_title = re.sub(r"Case Study|Integration|Solution|Implementation", "", title).strip()
-        if len(cleaned_title.split()) <= 3:  # Simple heuristic for company names
-            return cleaned_title
-    
-    return "Unknown Company"  # Default fallback
+
+
 
 def run():
     """
-    Run the crew pipeline and generate the final PDF with Crew Skipper handling logo fetching.
+    Run the crew pipeline and generate the final PDF with custom colors for header, footer, border.
     """
-    pdf_path = 'Amazon.pdf'
+    # Set up command line arguments
+    parser = argparse.ArgumentParser(description="Process PDF into formatted case study")
+    parser.add_argument("--pdf", required=True, help="Path to the PDF file")
+    parser.add_argument("--company", help="Company name (defaults to PDF filename)")
+    
+    # Color options
+    parser.add_argument("--border-color", default="000080", help="Border color in hex (default: navy blue)")
+    parser.add_argument("--header-color", default="4472C4", help="Header color in hex (default: blue)")
+    parser.add_argument("--footer-color", help="Footer color in hex (defaults to header color)")
+    parser.add_argument("--heading1-color", default="2F5597", help="Heading 1 color in hex (default: dark blue)")
+    parser.add_argument("--heading2-color", default="5B9BD5", help="Heading 2 color in hex (default: medium blue)")
+    parser.add_argument("--accent-color", default="70AD47", help="Accent color for graphs (default: green)")
+    
+    args = parser.parse_args()
+    pdf_path = args.pdf
     date_now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     
-    # Step 1: Run CrewAI to extract and structure the text from the PDF
+    # Extract company name from filename if not provided
+    # if args.company:
+    company_name = args.company
+    # else:
+    #     company_name = extract_company_name_from_filename(pdf_path)
+    
     print(f"🚀 Starting PDF processing for {pdf_path}")
+    print(f"📋 Company name: {company_name}")
+    
+    # Prepare color settings with user-provided values
+    colors = {
+        'border': args.border_color,
+        'header': args.header_color,
+        'heading1': args.heading1_color,
+        'heading2': args.heading2_color,
+        'accent': args.accent_color
+    }
+    
+    # Set footer color (defaults to header color if not specified)
+    if args.footer_color:
+        colors['footer'] = args.footer_color
+    else:
+        colors['footer'] = args.header_color
+    
+    # Print color settings for confirmation
+    print(f"🎨 Using color scheme:")
+    print(f"   - Border: #{colors['border']}")
+    print(f"   - Header: #{colors['header']}")
+    print(f"   - Footer: #{colors['footer']}")
+    print(f"   - Heading 1: #{colors['heading1']}")
+    print(f"   - Heading 2: #{colors['heading2']}")
+    print(f"   - Accent: #{colors['accent']}")
     
     try:
         # Initialize CrewAI for text extraction
@@ -264,22 +125,15 @@ def run():
         print(f"❌ Error during PDF text extraction: {e}")
         return
     
-    # Step 2: Use Crew Skipper (pattern matching) to extract company name
-    company_name = extract_company_name_from_text(structured_text)
-    print(f"✅ Extracted company name: {company_name}")
+
+    logo_url = get_company_logo_url(company_name) 
     
-    # Step 3: Use Crew Skipper to fetch the logo without an agent
-    logo_url = get_company_logo_url(company_name) if company_name != "Unknown Company" else None
-    
-    # Step 4: Generate the formatted case study document with the extracted content and logo
+    # Step 4: Generate the formatted case study document with the extracted content, logo, and custom colors
     try:
         output_file = f"output/case_study_{company_name.replace(' ', '_')}_{date_now}.pdf"
-        create_formatted_case_study(structured_text, logo_url, output_file)
+        create_formatted_case_study(structured_text, logo_url, output_file, colors)
         print(f"✅ Final PDF saved at {output_file}")
     except Exception as e:
         print(f"❌ PDF generation failed: {e}")
         import traceback
         traceback.print_exc()
-
-if __name__ == "__main__":
-    run()

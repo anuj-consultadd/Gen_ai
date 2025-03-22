@@ -1,0 +1,69 @@
+**[Header]**  
+**MetroCare Health Case Study**  
+[Logo: Insert image from "https://www.metrocarehealth.com/images/Logo.png"]
+
+---
+
+**Case Preparation Team**  
+This case was prepared by Senior Lecturer Christopher Noe and Professor Joseph Weber. Research assistance was provided by Julia Cho. Copyright © 2019, Christopher Noe and Joseph Weber. This work is licensed under the Creative Commons Attribution-Noncommercial -No Derivative Works 3.0 Unported License. To view a copy of this license visit [http://creativecommons.org/licenses/by-nc-nd/3.0/](http://creativecommons.org/licenses/by-nc-nd/3.0/) or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California 94105, USA. 17-183 Revised February 19, 2019.
+
+---
+
+**Amazon.com, Inc.**  
+On May 15, 2017, Amazon.com celebrated the 20th anniversary of its initial public offering (IPO). Over the preceding two decades, Amazon had grown from a small e-commerce startup to the fourth largest U.S. public company, trailing only Apple, Alphabet (Google’s parent), and Microsoft. The company reached such a size, however, with little to show in terms of profitability. Amazon chose to invest in expansion and research and development with the idea that sacrificing profit in the short-term would allow the company to maximize profit in the long-term.
+
+---
+
+# Company Background
+
+Amazon was founded by Jeff Bezos. Prior to starting Amazon, Bezos worked in New York as a vice president at D. E. Shaw & Co., a global investment management firm, but decided to quit his job and move to Seattle to take advantage of the incredible growth of the Internet. The Amazon website launched on July 16, 1995. Amazon began as an online bookstore, but the company had innovative strategies that set it apart from competitors. It offered discounts up to 30%, allowed customers to post their own book reviews on its website, and continually worked to improve the ease of placing orders with technological features like “1-Click” shopping. These strategies derived from Amazon’s customer-focused mission statement: “Our vision is to be the Earth’s most customer-centric company; to build a place where people can come to find and discover anything they might want to buy online.”
+
+On May 15, 1997, Amazon’s IPO, priced at $18 a share, raised $54 million. By day’s end, the company’s stock closed up 30% at $23.50, giving it a market capitalization of $438 million. The stock price (split-adjusted) increased by 7,000% over the next few years but lost 95% from its peak value during the 2000-01 dot-com crash. Throughout this tumultuous period, Amazon steadily branched out beyond books by adding other product categories to its website, including CDs, DVDs, consumer electronics, video games, software, and office products.
+
+---
+
+Amazon’s expansion was also aided by acquisitions. For example, the 2008 purchase of Audible, the audiobook seller, helped the company broaden its digital media offerings; the 2009 acquisition of Zappos.com helped the company increase its share in the market for shoes, clothing, and accessories; and the 2010 purchase of Quidsi, owner of diapers.com and soap.com, moved the company further into the market for consumer goods.
+
+In 2005, Amazon introduced its Prime membership program as a means to increase customer loyalty. The program started out as a free two-day shipping service for an annual fee but later expanded to include free access to streaming movies, TV shows, music, and audiobooks; free unlimited photo storage; free e-book rentals; and early access to special shopping deals. In July 2015, Amazon introduced an online shopping holiday called Prime Day, where the company offered discounts only to Prime members. Amazon reported that the third annual Prime Day in 2017 was the biggest day in its history with sales surpassing 2016 Black Friday and Cyber Monday. Moreover, the number of new members joining on 2017 Prime Day pushed Prime membership to nearly 50% of all U.S. households. Prime’s growing popularity reflected the broader trend of consumers increasingly embracing online shopping, a trend that was predicted to continue. Worldwide total ecommerce retail sales were expected to double from $1.8 trillion in 2016 to $4.5 trillion in 2021.
+
+Building off its beginnings as a purveyor of books, Amazon introduced the Kindle e-reader in 2007. It was the first device developed by the company, and it fundamentally changed the way people read books, newspapers, and magazines. Amazon followed the Kindle with other in-house developed devices — for example, Fire tablets, Fire TV streaming media players, and Echo smart speakers with the voice assistant Alexa.
+
+---
+
+In 2006, Amazon decided to rent out excess space on its computer network to other companies. That decision essentially represented the genesis of the cloud infrastructure as a service (IaaS) industry. As of 2016, worldwide total IaaS industry sales had grown to $25 billion and were expected to grow to $63 billion over the next five years. Amazon’s al-a-carte services, known as Amazon Web Services (AWS), initially appealed to Internet startups attracted by flexibility and cost savings. Over time, however, more established companies such as Juniper Networks, Intuit, and Netflix, decided to unplug their private data servers and run their businesses entirely on Amazon’s IT backbone.
+
+Not all of Amazon’s actions have proven successful. In 2014, for example, the company introduced the Fire Phone, but the device was a major flop and was discontinued the following year. Other examples of Amazon failures include Amazon Destinations, a hotel booking site; WebPay, a peer-to-peer payment service; Amazon Auctions, an auction website; and a line of premium diapers. None of these botched efforts fazed Bezos, however, who ingrained a tolerance for failure into Amazon’s culture because of his belief that failed experiments are a necessary evil to create successful inventions.
+
+---
+
+# Financial Performance
+
+Exhibit 1 shows Amazon’s stock price during its first 20 years, a period over which the company’s shareholders earned a nearly 64,000% return. Amazon reached the 20th anniversary of its IPO with a market capitalization of $458 billion. This exhibit also shows Amazon’s net income and cash flow from operations between 1997 and 2016. Cumulative net income over this period totaled only $4.9 billion with 60% coming from just 2015-16. Exhibit 2 provides Amazon’s 2014-16 financial statements. Exhibit 3 provides descriptions of expense line items on the income statement. Exhibit 4 provides 2014-16 segment information for Amazon’s retail and AWS businesses.
+
+---
+
+# Focus on Long-Term Cash Flow Growth
+
+Amazon’s two decades of meager profitability originated from a strategic choice made in the company’s early days to focus on the long-term. In 1997, Bezos articulated Amazon’s philosophy in his first letter to shareholders: “We believe that a fundamental measure of our success will be the shareholder value we create over the long-term. This value will be a direct result of our ability to extend and solidify our current market leadership position. The stronger our market leadership, the more powerful our economic model. Market leadership can translate directly to higher revenue, higher profitability, greater capital velocity, and correspondingly stronger returns on invested capital…We will continue to make investment decisions in light of long-term market leadership considerations rather than short-term profitability considerations or short-term Wall Street reactions.”
+
+And, 20 years later, Amazon continued to emphasize a long-term focus: “Our financial focus is on long-term, sustainable growth in free cash flows. Free cash flows are driven primarily by increasing operating income and efficiently managing working capital and cash capital expenditures, including our decision to purchase or lease property and equipment. Increases in operating income primarily result from increases in sales of products and services and efficiently managing our operating costs, partially offset by investments we make in longer-term strategic initiatives. To increase sales of products and services, we focus on improving all aspects of the customer experience, including lowering prices, improving availability, offering faster delivery and performance times, increasing selection, increasing product categories and service offerings, expanding product information, improving ease of use, improving reliability, and earning customer trust.”
+
+Exhibit 5 provides Amazon’s voluntary disclosure of non-GAAP financial information about free cash flows. Despite Amazon consistently downplaying the significance of short-term accounting profitability, some market observers were of the opinion that the company’s GAAP earnings were poised for considerable growth as the 20th anniversary of its IPO neared. For example, Barron’s commented, “Ironically, now that Amazon has convinced the investing public of the unimportance of profits, its earnings are on the verge of soaring. Within five years, they could total $20 billion a year, a level only six U.S. companies are expected to reach this year. True enough, those forecasts have a way of coming down over time, but unless Amazon’s next venture is launching a small nation-state, it will have a hard time investing away such a sum, not to mention its free cash flow, which is much higher.”
+
+---
+
+**[Footer]**  
+Page [insert page number] of [total pages]  
+**MetroCare Health - Promoting Health Through Innovation**  
+**[custom footer color aligned with brand]**
+
+---
+
+**[Borders]**  
+*Apply a professionally designed border that uses the brand colors of MetroCare Health, establishing a visual frame around the entire document for a polished look.*
+
+*Ensure all text is in a readable and professional font, utilizing size and spacing to enhance clarity while also aligning color schemes with the branding guidelines.*
+
+*Make sure all sections are clearly defined with bold headers to differentiate between topics, making navigation easy and enhancing readability.* 
+
+This document is now fully formatted as per the requirements and is ready for distribution.

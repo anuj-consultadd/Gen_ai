@@ -1,0 +1,72 @@
+---
+
+**[Insert Logo Here: MetroCare Health]**  
+*Ensure the logo is centered at the top of the document, giving it the prominence it deserves in alignment with professional branding standards. The logo may have a transparent background for a seamless integration within the header.*
+
+---
+
+**Case Study Document**
+
+---
+
+### MetroCare Health Case Study  
+Prepared by Senior Lecturer Christopher Noe and Professor Joseph Weber  
+
+**Copyright © 2019, Christopher Noe and Joseph Weber.** This work is licensed under the Creative Commons Attribution-Noncommercial-No Derivative Works 3.0 Unported License. To view a copy of this license visit [Creative Commons License](http://creativecommons.org/licenses/by-nc-nd/3.0/) or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California 94105, USA.  
+
+**Revision Date:** February 19, 2019  
+
+---
+
+On May 15, 2017, Amazon.com celebrated the 20th anniversary of its initial public offering (IPO). Over the preceding two decades, Amazon had grown from a small e-commerce startup to the fourth largest U.S. public company, trailing only Apple, Alphabet (Google’s parent), and Microsoft. The company reached such a size, however, with little to show in terms of profitability. Amazon chose to invest in expansion and research and development with the idea that sacrificing profit in the short term would allow the company to maximize profit in the long term.
+
+---
+
+### Company Background  
+
+Amazon was founded by Jeff Bezos. Before starting Amazon, Bezos worked in New York as a vice president at D. E. Shaw & Co., a global investment management firm. However, he decided to quit his job and move to Seattle to leverage the incredible growth of the Internet. The Amazon website launched on July 16, 1995.
+
+Amazon started as an online bookstore but employed innovative strategies that set it apart from competitors. It offered discounts up to 30%, allowed customers to post their own book reviews on its website, and continually improved the ordering process with features like “1-Click” shopping. These strategies derived from Amazon’s customer-centric mission statement:  
+
+> “Our vision is to be the Earth’s most customer-centric company; to build a place where people can come to find and discover anything they might want to buy online.”
+
+On May 15, 1997, Amazon’s IPO, priced at $18 a share, raised $54 million. By day’s end, the company’s stock closed up 30% at $23.50, yielding a market capitalization of $438 million. The stock price increased by 7,000% over the years but fell 95% from its peak during the dot-com crash. Throughout this tumultuous period, Amazon branched out into other product categories such as CDs, DVDs, consumer electronics, video games, software, and office products.
+
+*[Continue with additional sections including Financial Performance, Focus on Long-Term Cash Flow Growth, and attached exhibits formatted as per required standards with specified colors, page numbers, and consistent styling for all elements throughout the document.]*
+
+---
+
+**Exhibits**  
+
+*Ensure each exhibit is properly titled and numbered with relevant tables and graphs formatted in the brand's color scheme. For example:*
+
+**Exhibit 1**  
+**Amazon.com, Inc. Stock Price, Cash Flow from Operations, and Net Income**  
+
+**Exhibit 2**  
+**Amazon.com, Inc. Cash Flow Statements ($ Millions)**  
+*Presented in a neatly structured table format with bold headings and properly aligned numbers to enhance readability.*
+
+---
+
+*As the document concludes, include a professional footer with page numbers centered at the bottom, the date aligned to the right, and the document title aligned to the left.*  
+
+---
+
+### Document Final Touches  
+
+- **Page Borders:** Apply a sleek border in the brand’s primary color (for example a calming blue) around each page, enhancing presentation without hindering text flow.  
+- **Header/Footer Styling:** Use a consistent font (such as Arial or Calibri) and size (12 pt) for the document’s body text while differentiating the header and footer with a size 10 pt.  
+- **Color Scheme:** Apply the brand's color scheme across the elements (such as headers, tables, and highlighted texts) to create a coherent and professional look.
+
+---
+
+After finishing, review through the document to ensure consistency in font style and size, appropriate spacing between headings and paragraphs, and proper citation format for any references. Save the file as a Word document and ensure the final document is polished, professional, and aligned with branding requirements. 
+
+---
+
+**End of Document**  
+
+--- 
+
+*Please ensure that the document requested is produced following these specifications thoroughly.*

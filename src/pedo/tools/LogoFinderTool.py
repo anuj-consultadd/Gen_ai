@@ -1,8 +1,6 @@
 from crewai import Agent
 from crewai.tools import BaseTool
 import requests
-import os
-import json
 
 class LogoFinderTool(BaseTool):
     name: str = "logo_finder_tool"

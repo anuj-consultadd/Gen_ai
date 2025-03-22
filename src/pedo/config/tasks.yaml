@@ -33,11 +33,23 @@ logo_fetching_task:
   expected_output: >
     A URL of the retrieved logo for MetroCare Health or a suitable healthcare-related logo.
 
+# document_formatting_task:
+#   description: >
+#     Insert the structured text and logo into a Word document with proper formatting.
+#     Ensure the document has professional page borders, headers, footers, page numbers,
+#     and appropriate styling for all elements.
+#   agent: document_formatter
+#   expected_output: >
+#     A fully formatted Word document containing the case study with all required elements.
+
+
 document_formatting_task:
   description: >
     Insert the structured text and logo into a Word document with proper formatting.
     Ensure the document has professional page borders, headers, footers, page numbers,
-    and appropriate styling for all elements.
+    and appropriate styling for all elements. Apply the specified color scheme for 
+    borders, headers, and content elements to maintain brand consistency.
   agent: document_formatter
   expected_output: >
-    A fully formatted Word document containing the case study with all required elements.
+    A fully formatted Word document containing the case study with all required elements
+    and custom color schemes applied.
