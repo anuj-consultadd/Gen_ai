@@ -1,4 +1,4 @@
-The document outlines a transformative project for MetroCare Health in New York City, which involved integrating and modernizing their healthcare data exchange systems. 
+The document outlines a transformative project for MetroCare Health in New York City, which involved integrating and modernizing their healthcare data exchange systems.
 
 1. **Client Profile**: MetroCare Health provides comprehensive healthcare services with a focus on advanced data exchange.
    

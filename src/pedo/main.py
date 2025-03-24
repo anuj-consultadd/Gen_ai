@@ -1,7 +1,7 @@
-#!/usr/bin/env python
-import sys
-import warnings
+import argparse
+from crewai import Crew
 import os
+import requests
 from datetime import datetime
 from pedo.crew import Pedo
 from pedo.document_generator import create_formatted_case_study
@@ -22,9 +22,8 @@ def get_company_logo_url(company_name):
     ]
     
     for domain in domains_to_try:
+        # logo_url = f"https://img.logo.dev/{domain}"
         logo_url = f"https://logo.clearbit.com/{domain}"
-        print(f"🔗 Trying: {logo_url}")
-        # https://logo.clearbit.com/
         try:
             response = requests.head(logo_url, timeout=5)
             if response.status_code == 200:
@@ -76,7 +75,7 @@ def customize_colors(theme_color):
                 selected_colors[key].set(default_color.get())
 
     # Labels for different sections
-    color_labels = ["Border", "Header", "Footer", "Heading 1", "Heading 2", "Accent"]
+    color_labels = ["border", "header", "footer", "heading1", "heading2", "accent"]
     
     for idx, label in enumerate(color_labels):
         tk.Label(color_window, text=f"{label} Color:").grid(row=idx, column=0, sticky="w")
@@ -109,7 +108,7 @@ def customize_colors(theme_color):
     submit_button = tk.Button(color_window, text="Submit", command=submit_colors)
     submit_button.grid(row=len(color_labels) + 1, columnspan=2)
 
-    color_window.wait_window()  
+    color_window.wait_window()  # Wait until user closes color selection
 
     return {key: var.get() for key, var in selected_colors.items()}
 
@@ -155,8 +154,7 @@ def run():
         structured_text = str(crew_output) if not isinstance(crew_output, str) else crew_output
 
         os.makedirs("output", exist_ok=True)
-
-        debug_structured_text_path = "output/debug_structured_text.txt"
+        debug_structured_text_path = f"output/structured_text_{date_now}.txt"
         with open(debug_structured_text_path, "w", encoding="utf-8") as f:
             f.write(structured_text)
 
@@ -169,10 +167,9 @@ def run():
     logo_url = get_company_logo_url(company_name)
 
     try:
-        output_file = f"output/{inputs['date_now']}.pdf"
-        create_formatted_case_study(structured_text, inputs["logo_url"], output_file)
+        output_file = f"output/case_study_{company_name.replace(' ', '_')}_{date_now}.pdf"
+        create_formatted_case_study(structured_text, logo_url, output_file, colors)
         print(f"✅ Final PDF saved at {output_file}")
-
     except Exception as e:
         print(f"❌ PDF generation failed: {e}")
         import traceback
@@ -180,62 +177,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-
-
-# 1.change the logo fetch api
-# 2.increase the font size
-
-# 3.structure a format for  this 
-# *Exhibit 2 (cont.)**  
-# Amazon.com, Inc. Balance Sheets ($ Millions)  
-# December 31,  
-# |                     | 2016   | 2015   | 2014   |
-# |---------------------|--------|--------|--------|
-# | Current assets:     |        |        |        |
-# | Cash and cash equivalents | 19,334 | 15,890 | 14,557 |
-# | Marketable securities | 6,647  | 3,918  | 2,859  |
-# | Inventories         | 11,461 | 10,243 | 8,299  |
-# | Accounts receivable, net and other | 8,339  | 5,654  | 5,612  |
-# | Total current assets | 45,781 | 35,705 | 31,327 |
-# | Property and equipment, net | 29,114 | 21,838 | 16,967 |
-# | Goodwill            | 3,784  | 3,759  | 3,319  |
-# | Other assets        | 4,723  | 3,445  | 2,892  |
-# | Total assets        | 83,402 | 64,747 | 54,505 |
-# | Current liabilities: |        |        |        |
-# | Accounts payable     | 25,309 | 20,397 | 15,459 |
-# | Accrued expenses and other | 13,739 | 10,372 | 9,807  |
-# | Unearned revenue    | 4,768  | 3,118  | 1,823  |
-# | Total current liabilities | 43,816 | 33,887 | 28,089 |
-# | Long-term debt      | 7,694  | 8,227  | 8,265  |
-# | Other long-term liabilities | 12,607 | 9,249  | 7,410  |
-# | Stockholders’ equity: |       |        |        |
-# | Common stock        | 5      | 5      | 5      |
-# | Treasury stock, at cost | (1,837) | (1,837) | (1,837) |
-# | Additional paid-in capital | 17,186 | 13,394 | 11,135 |
-# | Accumulated other comprehensive loss | (985) | (723) | (511) |
-# | Retained earnings    | 4,916  | 2,545  | 1,949  |
-# | Total stockholders’ equity | 19,285 | 13,384 | 10,741 |
-# | Total liabilities and stockholders’ equity | 83,402 | 64,747 | 54,505 |
-# | **Source:** Amazon.com, Inc. 10-Ks, December 31, 2015-16. 
-
-# 4.regular expression for "Sorce:"
-# see why bolding is also not working here
-# ## 6. SAMPLES FRAMEWORKS AND APPLICATION
-# ### Potential Frameworks
-# - **4P’s**
-#     - Price
-#     - Promotion
-#     - Place
-# - **Porter’s Five Forces**
-# - **SWOT Analysis**
-
-# 5. page end after heading type 1
-
-# 6.add graphs
-
-# 7. do something for headers and footer 
-# 8. change font typr to accenture pdf and also match font settings to it
-    # find accenture text font and use it 
-#9 do something about that header and the footer
-
-

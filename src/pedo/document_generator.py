@@ -3,9 +3,7 @@ from docx.shared import Pt, Inches
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT, WD_LINE_SPACING
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
-from PIL import Image
 import requests
-from io import BytesIO
 import subprocess
 import os
 import re
@@ -27,6 +25,21 @@ def create_formatted_case_study(input_text, logo_url, output_file, colors=None):
     if not output_file.endswith(".pdf"):
         raise ValueError("Output file must have a .pdf extension")
 
+    # Default colors if none provided
+    if colors is None:
+        colors = {
+            'border': '000000',      # Black
+            'header': '4472C4',      # Blue
+            'footer': '4472C4',      # Blue (same as header by default)
+            'heading1': '2F5597',    # Dark blue
+            'heading2': '5B9BD5',    # Medium blue
+            'accent': '70AD47'       # Green
+        }
+    
+    # Ensure footer color exists (use header color as fallback)
+    if 'footer' not in colors and 'header' in colors:
+        colors['footer'] = colors['header']
+    
     docx_file = output_file.replace(".pdf", ".docx")
     doc = Document()
     
@@ -261,13 +274,17 @@ def create_formatted_case_study(input_text, logo_url, output_file, colors=None):
             for run in p.runs:
                 run.font.color.rgb = RGBColor.from_string(colors['heading1'])
             
-        # Bold Text - using Graphik-Bold
-        elif re.match(r"\*\*(.*?)\*\*", line):
+        elif "**" in line:
             p = doc.add_paragraph(style='CustomBody')
-            text = re.sub(r"\*\*(.*?)\*\*", r"\1", line)
-            run = p.add_run(text)
-            run.font.name = 'Graphik-Bold'
-            run.bold = True
+            parts = re.split(r"(\*\*.*?\*\*)", line)  # Split by bold markers
+            for part in parts:
+                if part.startswith("**") and part.endswith("**"):
+                    run = p.add_run(part[2:-2])  # Remove "**" from start and end
+                    run.font.name = 'Graphik-Bold'
+                    run.bold = True
+                else:
+                    p.add_run(part)  # Normal text
+
             
         # Bulleted Lists - using ArialMT
         elif line.startswith("- ") or line.startswith("• "):
@@ -408,7 +425,6 @@ def create_formatted_case_study(input_text, logo_url, output_file, colors=None):
         footer_para.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
     
     # Save document
-    set_global_font(doc, font_name="Arial", font_size=11) 
     doc.save(docx_file)
     print(f"✅ DOCX saved as {docx_file}")
     
@@ -421,7 +437,13 @@ def create_formatted_case_study(input_text, logo_url, output_file, colors=None):
         print(f"❌ PDF conversion failed: {e}")
     
     # Cleanup temporary files
-    os.remove("temp_logo.png")
-    # os.remove(docx_file)    
-    for i in range(len(data_for_graphs)):
-        os.remove(f"temp_graph_{i}.png")
+    try:
+        if os.path.exists("temp_logo.png"):
+            os.remove("temp_logo.png")
+            print("✅ Removed temporary logo file")
+        for i in range(len(data_for_graphs)):
+            if os.path.exists(f"temp_graph_{i}.png"):
+                os.remove(f"temp_graph_{i}.png")
+                print(f"✅ Removed temporary graph file: temp_graph_{i}.png")
+    except Exception as e:
+        print(f"⚠️ Failed to clean up temporary files: {e}")
