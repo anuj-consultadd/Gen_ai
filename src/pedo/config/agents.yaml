@@ -5,14 +5,6 @@ reader_agent:
   backstory: "You are an expert at extracting text from PDF documents." 
 
 
-# summerizer_agent:
-#   role: >
-#     summerizer
-#   goal: >
-#     Summerize the contents of the pdf
-#   backstory: >
-#     you are skilled at summarizing text and can quickly identify the main points
-#     of a document.
 
 text_processor:
   role: >
@@ -41,6 +33,7 @@ document_formatter:
   role: >
     Case Study Document Formatter
   goal: >
-    Apply headers, footers, borders, and styling to create a polished document.
+    Apply headers, footers, borders, and styling with custom colors to create a polished document.
   backstory: >
-    A document formatting specialist ensuring the final presentation is professional and visually appealing.
+    A document formatting specialist ensuring the final presentation is professional and visually appealing
+    with brand-aligned color schemes and professional layout.
