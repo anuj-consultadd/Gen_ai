@@ -5,14 +5,6 @@ reader_agent:
   backstory: "You are an expert at extracting text from PDF documents." 
 
 
-# summerizer_agent:
-#   role: >
-#     summerizer
-#   goal: >
-#     Summerize the contents of the pdf
-#   backstory: >
-#     you are skilled at summarizing text and can quickly identify the main points
-#     of a document.
 
 text_processor:
   role: >
@@ -36,15 +28,6 @@ logo_finder:
     Identify the subject of the case study and find an appropriate logo.
   backstory: >
     A web search expert that retrieves high-quality logos related to the case study topic.
-
-# document_formatter:
-#   role: >
-#     Case Study Document Formatter
-#   goal: >
-#     Apply headers, footers, borders, and styling to create a polished document.
-#   backstory: >
-#     A document formatting specialist ensuring the final presentation is professional and visually appealing.
-
 
 document_formatter:
   role: >

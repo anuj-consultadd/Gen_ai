@@ -6,14 +6,6 @@ read_pdf_task:
   agent: reader_agent
 
 
-# summerize_text_task:
-#   description: >
-#     summerize the provided text and identify the main topics.
-#   expected_output: >
-#     A concise and accurate summary of the document's contents 
-#   agent: summerizer_agent
-
-
 text_processing_task:
   description: >
     Take the provided case study text and structure it into a well-organized format.
@@ -28,20 +20,9 @@ text_processing_task:
 logo_fetching_task:
   description: >
     Identify the subject matter of the case study and retrieve a relevant logo.
-    The subject of this case study appears to be MetroCare Health.
   agent: logo_finder
   expected_output: >
-    A URL of the retrieved logo for MetroCare Health or a suitable healthcare-related logo.
-
-# document_formatting_task:
-#   description: >
-#     Insert the structured text and logo into a Word document with proper formatting.
-#     Ensure the document has professional page borders, headers, footers, page numbers,
-#     and appropriate styling for all elements.
-#   agent: document_formatter
-#   expected_output: >
-#     A fully formatted Word document containing the case study with all required elements.
-
+    A URL of the retrieved logo for the specified company or a suitable industry-related logo.
 
 document_formatting_task:
   description: >
